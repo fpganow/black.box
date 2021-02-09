@@ -4,10 +4,10 @@ Repository to Reproduce Some Black Box Error using LabVIEW FPGA IP Export Utilit
 # First, I created some LabVIEW FPGA IP and exported it using the FPGA IP Export to Netlist feature
 
 ## The Block Diagram of the IP I am importing
-![](Block.Diagram.png)
+![](./pictures/Block.Diagram.png)
 
 ## The Front Panel of the IP I am importing
-![](Front.Panel.png)
+![](./pictures/Front.Panel.png)
 
 # Second, I created a MicroBlaze based Block Design for the Arty Artix-7 Board
 

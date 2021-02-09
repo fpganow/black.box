@@ -1,6 +1,12 @@
 # black.box
 Repository to Reproduce Some Black Box Error using LabVIEW FPGA IP Export Utility.
 
+
+# Summary
+* When I add the dcp and wrapper vhdl file, I get an error saying that a dcp cannot be added to a block design.  After searching the Xilinx forums, they recommend that I remove the DCP from the synthesis step and leave the wrapper vhdl file which will act as a 'stub'.
+* After doing this, it fails to find the IP defined in the DCP during the opt_design step of the implementation phase.  It cannot find the definition of this IP.
+* I have some links to the Xilinx Forums that recommend providing the IP with some .xci file.  #TODO: I am searching for and gathering all of these links for posting here.
+
 # First, I created some LabVIEW FPGA IP and exported it using the FPGA IP Export to Netlist feature
 
 ## The Block Diagram of the IP I am importing

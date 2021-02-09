@@ -11,7 +11,7 @@ Repository to Reproduce Some Black Box Error using LabVIEW FPGA IP Export Utilit
 
 # Second, I created a MicroBlaze based Block Design for the Arty Artix-7 Board
 
-# Then I create a file called my_wrapper.v with the following contents:
+## Then I create a file called my_wrapper.v with the following contents:
 ```
 module my_wrapper(
     input wire clk,

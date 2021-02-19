@@ -37,9 +37,7 @@ def main() -> None:
 
     # WSL: linux
     # command prompt/Powershell: win32
- #   print(f'sys.platform: {sys.platform}')
     from pathlib import Path, PureWindowsPath, PosixPath
- #   return
     parser = get_args()
     args = parser.parse_args()
 
@@ -72,10 +70,13 @@ def main() -> None:
                 clean_line = line.strip()[1:].strip()
                 clean_line = clean_line.replace('"','')
                 if len(clean_line) != 0:
-                    clean_line = clean_line[0].lower() + clean_line[1:]
-                    file_path_win = '/mnt/' + clean_line.replace(':','')
+                    if sys.platform == 'win32':
+                        file_path = clean_line
+                    else:
+                        clean_line = clean_line[0].lower() + clean_line[1:]
+                        file_path = '/mnt/' + clean_line.replace(':','')
 
-                    cmd_args = ["git", "add", file_path_win]
+                    cmd_args = ["git", "add", file_path]
                     if args.dry_run:
                         print(f'[DRY-RUN] {cmd_args}')
                     else:

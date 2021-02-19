@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
---Date        : Sun Feb  7 22:07:22 2021
+--Date        : Thu Feb 11 22:29:12 2021
 --Host        : Win10ProN running 64-bit major release  (build 9200)
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper
@@ -66,6 +66,32 @@ architecture STRUCTURE of design_1_wrapper is
   component design_1 is
   port (
     sys_clock : in STD_LOGIC;
+    reset : in STD_LOGIC;
+    eth_ref_clk : out STD_LOGIC;
+    a_0 : in STD_LOGIC;
+    b_0 : in STD_LOGIC;
+    c_0 : in STD_LOGIC;
+    d_0 : in STD_LOGIC;
+    a_or_b_0 : out STD_LOGIC;
+    a_and_b_0 : out STD_LOGIC;
+    c_echo_0 : out STD_LOGIC;
+    d_latched_0 : out STD_LOGIC;
+    eth_mdio_mdc_mdc : out STD_LOGIC;
+    eth_mdio_mdc_mdio_i : in STD_LOGIC;
+    eth_mdio_mdc_mdio_o : out STD_LOGIC;
+    eth_mdio_mdc_mdio_t : out STD_LOGIC;
+    eth_mii_col : in STD_LOGIC;
+    eth_mii_crs : in STD_LOGIC;
+    eth_mii_rst_n : out STD_LOGIC;
+    eth_mii_rx_clk : in STD_LOGIC;
+    eth_mii_rx_dv : in STD_LOGIC;
+    eth_mii_rx_er : in STD_LOGIC;
+    eth_mii_rxd : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    eth_mii_tx_clk : in STD_LOGIC;
+    eth_mii_tx_en : out STD_LOGIC;
+    eth_mii_txd : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    usb_uart_rxd : in STD_LOGIC;
+    usb_uart_txd : out STD_LOGIC;
     ddr3_sdram_dq : inout STD_LOGIC_VECTOR ( 15 downto 0 );
     ddr3_sdram_dqs_p : inout STD_LOGIC_VECTOR ( 1 downto 0 );
     ddr3_sdram_dqs_n : inout STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -81,22 +107,6 @@ architecture STRUCTURE of design_1_wrapper is
     ddr3_sdram_cs_n : out STD_LOGIC_VECTOR ( 0 to 0 );
     ddr3_sdram_dm : out STD_LOGIC_VECTOR ( 1 downto 0 );
     ddr3_sdram_odt : out STD_LOGIC_VECTOR ( 0 to 0 );
-    reset : in STD_LOGIC;
-    eth_ref_clk : out STD_LOGIC;
-    eth_mii_col : in STD_LOGIC;
-    eth_mii_crs : in STD_LOGIC;
-    eth_mii_rst_n : out STD_LOGIC;
-    eth_mii_rx_clk : in STD_LOGIC;
-    eth_mii_rx_dv : in STD_LOGIC;
-    eth_mii_rx_er : in STD_LOGIC;
-    eth_mii_rxd : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    eth_mii_tx_clk : in STD_LOGIC;
-    eth_mii_tx_en : out STD_LOGIC;
-    eth_mii_txd : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    eth_mdio_mdc_mdc : out STD_LOGIC;
-    eth_mdio_mdc_mdio_i : in STD_LOGIC;
-    eth_mdio_mdc_mdio_o : out STD_LOGIC;
-    eth_mdio_mdc_mdio_t : out STD_LOGIC;
     qspi_flash_io0_i : in STD_LOGIC;
     qspi_flash_io0_o : out STD_LOGIC;
     qspi_flash_io0_t : out STD_LOGIC;
@@ -114,17 +124,7 @@ architecture STRUCTURE of design_1_wrapper is
     qspi_flash_sck_t : out STD_LOGIC;
     qspi_flash_ss_i : in STD_LOGIC;
     qspi_flash_ss_o : out STD_LOGIC;
-    qspi_flash_ss_t : out STD_LOGIC;
-    usb_uart_rxd : in STD_LOGIC;
-    usb_uart_txd : out STD_LOGIC;
-    a_0 : in STD_LOGIC;
-    b_0 : in STD_LOGIC;
-    c_0 : in STD_LOGIC;
-    d_0 : in STD_LOGIC;
-    a_or_b_0 : out STD_LOGIC;
-    a_and_b_0 : out STD_LOGIC;
-    c_echo_0 : out STD_LOGIC;
-    d_latched_0 : out STD_LOGIC
+    qspi_flash_ss_t : out STD_LOGIC
   );
   end component design_1;
   component IOBUF is
